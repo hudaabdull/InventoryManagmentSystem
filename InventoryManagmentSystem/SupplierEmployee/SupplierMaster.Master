@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SupplierMaster.master.cs" Inherits="InventoryManagmentSystem.SupplierEmployee.SupplierMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+        </div>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <asp:Image ID="Image1" runat="server" Height="216px" ImageUrl="~/Imeges/koflah.png" Width="352px" />
+                </td>
+                <td>
+                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#999999" Text="Inventory Mangment System"></asp:Label>
+                </td>
+                <td>
+                    <asp:LinkButton ID="LinkButton1logoutdesigner" runat="server">Logout</asp:LinkButton>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+                        <Items>
+                            <asp:MenuItem Text="Qutation Request" Value="Qutation Request">
+                                <asp:MenuItem Text="Upcoming Qutations" Value="Upcoming Qutations"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Shipment" Value="Shipment">
+                                <asp:MenuItem Text="Add New Shipment" Value="Add New Shipment"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Order" Value="Order"></asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

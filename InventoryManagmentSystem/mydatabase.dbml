@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Inventory" Class="mydatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=Inventory;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="InventoryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CEO" Member="CEOs">
+    <Type Name="CEO">
+      <Column Name="CEOID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CEO_PurchaseOrder" Member="PurchaseOrders" ThisKey="CEOID" OtherKey="CEOID" Type="PurchaseOrder" />
+      <Association Name="Employee_CEO" Member="Employee" ThisKey="CEOID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CuOrder" Member="CuOrders">
+    <Type Name="CuOrder">
+      <Column Name="CuOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderStatus" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Descreption" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="CuOrder_CuOrderOutstanding" Member="CuOrderOutstandings" ThisKey="CuOrderID" OtherKey="CuOrderID" Type="CuOrderOutstanding" />
+      <Association Name="CuOrder_CustSubmitOrder" Member="CustSubmitOrders" ThisKey="CuOrderID" OtherKey="CuOrderID" Type="CustSubmitOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CuOrderOutstanding" Member="CuOrderOutstandings">
+    <Type Name="CuOrderOutstanding">
+      <Column Name="CuOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemSID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OutstandingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CuOrder_CuOrderOutstanding" Member="CuOrder" ThisKey="CuOrderID" OtherKey="CuOrderID" Type="CuOrder" IsForeignKey="true" />
+      <Association Name="Item_CuOrderOutstanding" Member="Item" ThisKey="ItemSID" OtherKey="ItemSID" Type="Item" IsForeignKey="true" />
+      <Association Name="Outstanding_CuOrderOutstanding" Member="Outstanding" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="Outstanding" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="street" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Apt" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZipCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Customer_CustSubmitOrder" Member="CustSubmitOrders" ThisKey="CustomerID" OtherKey="CustomerID" Type="CustSubmitOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustSubmitOrder" Member="CustSubmitOrders">
+    <Type Name="CustSubmitOrder">
+      <Column Name="CuOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemSID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuantityOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CuOrder_CustSubmitOrder" Member="CuOrder" ThisKey="CuOrderID" OtherKey="CuOrderID" Type="CuOrder" IsForeignKey="true" />
+      <Association Name="Customer_CustSubmitOrder" Member="Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+      <Association Name="Item_CustSubmitOrder" Member="Item" ThisKey="ItemSID" OtherKey="ItemSID" Type="Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EmpAdmin" Member="EmpAdmins">
+    <Type Name="EmpAdmin">
+      <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="EmpAdmin_PoSubmittedSupplier" Member="PoSubmittedSuppliers" ThisKey="AdminID" OtherKey="AdminID" Type="PoSubmittedSupplier" />
+      <Association Name="EmpAdmin_Qutation" Member="Qutations" ThisKey="AdminID" OtherKey="AdminID" Type="Qutation" />
+      <Association Name="Employee_EmpAdmin" Member="Employee" ThisKey="AdminID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Designer" Member="Designers">
+    <Type Name="Designer">
+      <Column Name="DesignerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Designer_Item" Member="Items" ThisKey="DesignerID" OtherKey="DesignerID" Type="Item" />
+      <Association Name="Employee_Designer" Member="Employee" ThisKey="DesignerID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Item" Member="Items">
+    <Type Name="Item">
+      <Column Name="ItemSID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemID" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="DesignerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="ItemDescription" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NumberOfDefectiveItems" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DesignerComment" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(9,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DateCheked" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ItemCategory" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Item_CuOrderOutstanding" Member="CuOrderOutstandings" ThisKey="ItemSID" OtherKey="ItemSID" Type="CuOrderOutstanding" />
+      <Association Name="Item_CustSubmitOrder" Member="CustSubmitOrders" ThisKey="ItemSID" OtherKey="ItemSID" Type="CustSubmitOrder" />
+      <Association Name="Item_OutstandingItem" Member="OutstandingItems" ThisKey="ItemSID" OtherKey="ItemSID" Type="OutstandingItem" />
+      <Association Name="Item_WarehouseItem" Member="WarehouseItems" ThisKey="ItemSID" OtherKey="ItemSID" Type="WarehouseItem" />
+      <Association Name="Designer_Item" Member="Designer" ThisKey="DesignerID" OtherKey="DesignerID" Type="Designer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OutstandingItem" Member="OutstandingItems">
+    <Type Name="OutstandingItem">
+      <Column Name="OutstandingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ItemSID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuantitytoBeOrdered" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OutsDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Item_OutstandingItem" Member="Item" ThisKey="ItemSID" OtherKey="ItemSID" Type="Item" IsForeignKey="true" />
+      <Association Name="Outstanding_OutstandingItem" Member="Outstanding" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="Outstanding" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Outstanding" Member="Outstandings">
+    <Type Name="Outstanding">
+      <Column Name="OutstandingID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OutStatus" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Outstanding_CuOrderOutstanding" Member="CuOrderOutstandings" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="CuOrderOutstanding" />
+      <Association Name="Outstanding_OutstandingItem" Member="OutstandingItems" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="OutstandingItem" />
+      <Association Name="Outstanding_PoSubmittedSupplier" Member="PoSubmittedSuppliers" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="PoSubmittedSupplier" />
+      <Association Name="Outstanding_Shipment" Member="Shipments" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="Shipment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PoSubmittedSupplier" Member="PoSubmittedSuppliers">
+    <Type Name="PoSubmittedSupplier">
+      <Column Name="PurchaseOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AdminID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OutstandingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="EmpAdmin_PoSubmittedSupplier" Member="EmpAdmin" ThisKey="AdminID" OtherKey="AdminID" Type="EmpAdmin" IsForeignKey="true" />
+      <Association Name="Outstanding_PoSubmittedSupplier" Member="Outstanding" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="Outstanding" IsForeignKey="true" />
+      <Association Name="PurchaseOrder_PoSubmittedSupplier" Member="PurchaseOrder" ThisKey="PurchaseOrderID" OtherKey="PurchaseOrderID" Type="PurchaseOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PurchaseOrder" Member="PurchaseOrders">
+    <Type Name="PurchaseOrder">
+      <Column Name="PurchaseOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CEOID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Descreption" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ReviewDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PoOrderStatus" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CEOComment" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Association Name="PurchaseOrder_PoSubmittedSupplier" Member="PoSubmittedSuppliers" ThisKey="PurchaseOrderID" OtherKey="PurchaseOrderID" Type="PoSubmittedSupplier" />
+      <Association Name="PurchaseOrder_PurchaseReqQutation" Member="PurchaseReqQutations" ThisKey="PurchaseOrderID" OtherKey="PurchaseOrderID" Type="PurchaseReqQutation" />
+      <Association Name="CEO_PurchaseOrder" Member="CEO" ThisKey="CEOID" OtherKey="CEOID" Type="CEO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PurchaseReqQutation" Member="PurchaseReqQutations">
+    <Type Name="PurchaseReqQutation">
+      <Column Name="QutationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PurchaseOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PReqQuoDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="PurchaseOrder_PurchaseReqQutation" Member="PurchaseOrder" ThisKey="PurchaseOrderID" OtherKey="PurchaseOrderID" Type="PurchaseOrder" IsForeignKey="true" />
+      <Association Name="Qutation_PurchaseReqQutation" Member="Qutation" ThisKey="QutationID" OtherKey="QutationID" Type="Qutation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Qutation" Member="Qutations">
+    <Type Name="Qutation">
+      <Column Name="QutationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AdminID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QutationStatus" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="QutationDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(9,2)" CanBeNull="true" />
+      <Column Name="ReviewDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(80)" CanBeNull="true" />
+      <Association Name="Qutation_PurchaseReqQutation" Member="PurchaseReqQutations" ThisKey="QutationID" OtherKey="QutationID" Type="PurchaseReqQutation" />
+      <Association Name="EmpAdmin_Qutation" Member="EmpAdmin" ThisKey="AdminID" OtherKey="AdminID" Type="EmpAdmin" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shipment" Member="Shipments">
+    <Type Name="Shipment">
+      <Column Name="WarehouseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="OutstandingID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShippingDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ExpectedArrivalDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ActualDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TrackingShippmentNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShipmentStatus" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Association Name="Outstanding_Shipment" Member="Outstanding" ThisKey="OutstandingID" OtherKey="OutstandingID" Type="Outstanding" IsForeignKey="true" />
+      <Association Name="Warehouse_Shipment" Member="Warehouse" ThisKey="WarehouseID" OtherKey="WarehouseID" Type="Warehouse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Warehouse" Member="Warehouses">
+    <Type Name="Warehouse">
+      <Column Name="WarehouseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WarehouseLocation" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="Warehouse_Shipment" Member="Shipments" ThisKey="WarehouseID" OtherKey="WarehouseID" Type="Shipment" />
+      <Association Name="Warehouse_WarehouseItem" Member="WarehouseItems" ThisKey="WarehouseID" OtherKey="WarehouseID" Type="WarehouseItem" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WarehouseItem" Member="WarehouseItems">
+    <Type Name="WarehouseItem">
+      <Column Name="ItemSID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WarehouseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CabinetNumber" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ShelveNumber" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="QuantityAvailbale" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Item_WarehouseItem" Member="Item" ThisKey="ItemSID" OtherKey="ItemSID" Type="Item" IsForeignKey="true" />
+      <Association Name="Warehouse_WarehouseItem" Member="Warehouse" ThisKey="WarehouseID" OtherKey="WarehouseID" Type="Warehouse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EmPassword" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_CEO" Member="CEO" ThisKey="EmployeeID" OtherKey="CEOID" Type="CEO" Cardinality="One" />
+      <Association Name="Employee_EmpAdmin" Member="EmpAdmin" ThisKey="EmployeeID" OtherKey="AdminID" Type="EmpAdmin" Cardinality="One" />
+      <Association Name="Employee_Designer" Member="Designer" ThisKey="EmployeeID" OtherKey="DesignerID" Type="Designer" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Supplier" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Adress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserNamer" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Passowrd" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

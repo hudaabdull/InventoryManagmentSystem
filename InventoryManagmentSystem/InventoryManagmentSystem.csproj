@@ -50,6 +50,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -111,14 +112,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
+    <Content Include="AdminEmployee\AdminCreatNewPurchaseOrder.aspx" />
+    <Content Include="Homepagesfolder\About.aspx" />
+    <Content Include="AdminEmployee\AdminHomePage.aspx" />
+    <Content Include="AdminEmployee\EmployeeDetails.aspx" />
+    <Content Include="AdminEmployee\SupplierDetails.aspx" />
+    <Content Include="AdminEmployee\AdminItem.aspx" />
+    <Content Include="AdminEmployee\CreateNewEmployee.aspx" />
+    <Content Include="AdminEmployee\AdminAddSupplier.aspx" />
+    <Content Include="AdminEmployee\AddminCheckOutstanding.aspx" />
+    <Content Include="AdminEmployee\AdminViewOutstanding.aspx" />
+    <Content Include="AdminEmployee\AdminOrderFromOutstanding.aspx" />
+    <Content Include="AdminEmployee\AdminPurchaseOrderView.aspx" />
+    <Content Include="AdminEmployee\AdminViewPOAfterCEOdecesion.aspx" />
+    <Content Include="AdminEmployee\AdminViewQutation.aspx" />
+    <Content Include="AdminEmployee\AdminViewQutationDetails.aspx" />
+    <Content Include="AdminEmployee\AdminViewShipment.aspx" />
+    <Content Include="AdminEmployee\AdminViewShipmentDetails.aspx" />
+    <Content Include="CEOs\CEOsViewOrder.aspx" />
+    <Content Include="CEOs\CEOsViewOrderDetails.aspx" />
+    <Content Include="CEOs\CEOsHomePage.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap_sandstone.css" />
+    <Content Include="Content\bootstrap_Sandstone.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="DesignerEmployee\DesignerCheckItemQuality.aspx" />
+    <Content Include="DesignerEmployee\DesignerGenrateReport.aspx" />
+    <Content Include="DesignerEmployee\DesignerHomePage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -130,7 +155,31 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="AdminEmployee\MasterHomePage.Master" />
+    <Content Include="CEOs\CEOsMaster.Master" />
+    <Content Include="DesignerEmployee\DesignerMaster.Master" />
+    <Content Include="Homepagesfolder\Homepagemaster.Master" />
+    <Content Include="Imeges\1200x630wa.png" />
+    <Content Include="Imeges\koflahlogo.png" />
+    <Content Include="Imeges\koflahlogo2.png" />
+    <Content Include="JQuery\jquery-3.3.1.min.js" />
+    <Content Include="SupplierEmployee\SupplierHomePage.aspx" />
+    <Content Include="WarehouseEmployee\WarehouseHomePage.aspx" />
+    <Content Include="Homepagesfolder\LoginPage.aspx" />
+    <Content Include="mydatabase.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>mydatabase.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Homepagesfolder\ContactUS.aspx" />
+    <Content Include="Homepagesfolder\AboutUS.aspx" />
+    <Content Include="Homepagesfolder\HomePage.aspx" />
+    <Content Include="Homepagesfolder\Members.aspx" />
+    <None Include="mydatabase.dbml.layout">
+      <DependentUpon>mydatabase.dbml</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Imeges\koflah.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -160,21 +209,173 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="SupplierEmployee\SupplierViewQutations.aspx" />
+    <Content Include="SupplierEmployee\SupplierViewQutationDetails.aspx" />
+    <Content Include="SupplierEmployee\SupplierAddsShipment.aspx" />
+    <Content Include="SupplierEmployee\SupplierAddNewShipment.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="WarehouseEmployee\WarehouseViewItem.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminEmployee\MasterHomePage.Master.cs">
+      <DependentUpon>MasterHomePage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\MasterHomePage.Master.designer.cs">
+      <DependentUpon>MasterHomePage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminHomePage.aspx.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminHomePage.aspx.designer.cs">
+      <DependentUpon>AdminHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\EmployeeDetails.aspx.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\EmployeeDetails.aspx.designer.cs">
+      <DependentUpon>EmployeeDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\SupplierDetails.aspx.cs">
+      <DependentUpon>SupplierDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\SupplierDetails.aspx.designer.cs">
+      <DependentUpon>SupplierDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminItem.aspx.cs">
+      <DependentUpon>AdminItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminItem.aspx.designer.cs">
+      <DependentUpon>AdminItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\CreateNewEmployee.aspx.cs">
+      <DependentUpon>CreateNewEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\CreateNewEmployee.aspx.designer.cs">
+      <DependentUpon>CreateNewEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminAddSupplier.aspx.cs">
+      <DependentUpon>AdminAddSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminAddSupplier.aspx.designer.cs">
+      <DependentUpon>AdminAddSupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AddminCheckOutstanding.aspx.cs">
+      <DependentUpon>AddminCheckOutstanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AddminCheckOutstanding.aspx.designer.cs">
+      <DependentUpon>AddminCheckOutstanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewOutstanding.aspx.cs">
+      <DependentUpon>AdminViewOutstanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewOutstanding.aspx.designer.cs">
+      <DependentUpon>AdminViewOutstanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminOrderFromOutstanding.aspx.cs">
+      <DependentUpon>AdminOrderFromOutstanding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminOrderFromOutstanding.aspx.designer.cs">
+      <DependentUpon>AdminOrderFromOutstanding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminPurchaseOrderView.aspx.cs">
+      <DependentUpon>AdminPurchaseOrderView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminPurchaseOrderView.aspx.designer.cs">
+      <DependentUpon>AdminPurchaseOrderView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewPOAfterCEOdecesion.aspx.cs">
+      <DependentUpon>AdminViewPOAfterCEOdecesion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewPOAfterCEOdecesion.aspx.designer.cs">
+      <DependentUpon>AdminViewPOAfterCEOdecesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewQutation.aspx.cs">
+      <DependentUpon>AdminViewQutation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewQutation.aspx.designer.cs">
+      <DependentUpon>AdminViewQutation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewQutationDetails.aspx.cs">
+      <DependentUpon>AdminViewQutationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewQutationDetails.aspx.designer.cs">
+      <DependentUpon>AdminViewQutationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewShipment.aspx.cs">
+      <DependentUpon>AdminViewShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewShipment.aspx.designer.cs">
+      <DependentUpon>AdminViewShipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewShipmentDetails.aspx.cs">
+      <DependentUpon>AdminViewShipmentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminViewShipmentDetails.aspx.designer.cs">
+      <DependentUpon>AdminViewShipmentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminCreatNewPurchaseOrder.aspx.cs">
+      <DependentUpon>AdminCreatNewPurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminEmployee\AdminCreatNewPurchaseOrder.aspx.designer.cs">
+      <DependentUpon>AdminCreatNewPurchaseOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
+    <Compile Include="Homepagesfolder\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="About.aspx.designer.cs">
+    <Compile Include="Homepagesfolder\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CEOs\CEOsMaster.Master.cs">
+      <DependentUpon>CEOsMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CEOs\CEOsMaster.Master.designer.cs">
+      <DependentUpon>CEOsMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CEOs\CEOsViewOrder.aspx.cs">
+      <DependentUpon>CEOsViewOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CEOs\CEOsViewOrder.aspx.designer.cs">
+      <DependentUpon>CEOsViewOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CEOs\CEOsViewOrderDetails.aspx.cs">
+      <DependentUpon>CEOsViewOrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CEOs\CEOsViewOrderDetails.aspx.designer.cs">
+      <DependentUpon>CEOsViewOrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CEOs\CEOsHomePage.aspx.cs">
+      <DependentUpon>CEOsHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CEOs\CEOsHomePage.aspx.designer.cs">
+      <DependentUpon>CEOsHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -189,8 +390,48 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DesignerEmployee\DesignerMaster.Master.cs">
+      <DependentUpon>DesignerMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerMaster.Master.designer.cs">
+      <DependentUpon>DesignerMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerCheckItemQuality.aspx.cs">
+      <DependentUpon>DesignerCheckItemQuality.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerCheckItemQuality.aspx.designer.cs">
+      <DependentUpon>DesignerCheckItemQuality.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerGenrateReport.aspx.cs">
+      <DependentUpon>DesignerGenrateReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerGenrateReport.aspx.designer.cs">
+      <DependentUpon>DesignerGenrateReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerHomePage.aspx.cs">
+      <DependentUpon>DesignerHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DesignerEmployee\DesignerHomePage.aspx.designer.cs">
+      <DependentUpon>DesignerHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Homepagesfolder\Homepagemaster.Master.cs">
+      <DependentUpon>Homepagemaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepagesfolder\Homepagemaster.Master.designer.cs">
+      <DependentUpon>Homepagemaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="mydatabase.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>mydatabase.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -202,15 +443,115 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SupplierEmployee\SupplierMaster.Master.cs">
+      <DependentUpon>SupplierMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierMaster.Master.designer.cs">
+      <DependentUpon>SupplierMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierViewQutations.aspx.cs">
+      <DependentUpon>SupplierViewQutations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierViewQutations.aspx.designer.cs">
+      <DependentUpon>SupplierViewQutations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierViewQutationDetails.aspx.cs">
+      <DependentUpon>SupplierViewQutationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierViewQutationDetails.aspx.designer.cs">
+      <DependentUpon>SupplierViewQutationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierAddsShipment.aspx.cs">
+      <DependentUpon>SupplierAddsShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierAddsShipment.aspx.designer.cs">
+      <DependentUpon>SupplierAddsShipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierAddNewShipment.aspx.cs">
+      <DependentUpon>SupplierAddNewShipment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierAddNewShipment.aspx.designer.cs">
+      <DependentUpon>SupplierAddNewShipment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierHomePage.aspx.cs">
+      <DependentUpon>SupplierHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SupplierEmployee\SupplierHomePage.aspx.designer.cs">
+      <DependentUpon>SupplierHomePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseEmployee\WarehouseMaster.Master.cs">
+      <DependentUpon>WarehouseMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarehouseEmployee\WarehouseMaster.Master.designer.cs">
+      <DependentUpon>WarehouseMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseEmployee\WarehouseViewItem.aspx.cs">
+      <DependentUpon>WarehouseViewItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarehouseEmployee\WarehouseViewItem.aspx.designer.cs">
+      <DependentUpon>WarehouseViewItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseEmployee\WarehouseHomePage.aspx.cs">
+      <DependentUpon>WarehouseHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WarehouseEmployee\WarehouseHomePage.aspx.designer.cs">
+      <DependentUpon>WarehouseHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepagesfolder\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepagesfolder\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepagesfolder\ContactUS.aspx.cs">
+      <DependentUpon>ContactUS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepagesfolder\ContactUS.aspx.designer.cs">
+      <DependentUpon>ContactUS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepagesfolder\AboutUS.aspx.cs">
+      <DependentUpon>AboutUS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepagesfolder\AboutUS.aspx.designer.cs">
+      <DependentUpon>AboutUS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepagesfolder\HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepagesfolder\HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Homepagesfolder\Members.aspx.cs">
+      <DependentUpon>Members.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homepagesfolder\Members.aspx.designer.cs">
+      <DependentUpon>Members.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -220,12 +561,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="SupplierEmployee\SupplierMaster.Master" />
+    <Content Include="WarehouseEmployee\WarehouseMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
