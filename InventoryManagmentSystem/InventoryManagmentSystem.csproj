@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminEmployee\AdminCreatNewPurchaseOrder.aspx" />
+    <Content Include="CEOs\CEOsviewReport.aspx" />
     <Content Include="Homepagesfolder\About.aspx" />
     <Content Include="AdminEmployee\AdminHomePage.aspx" />
     <Content Include="AdminEmployee\EmployeeDetails.aspx" />
@@ -340,6 +341,13 @@
       <DependentUpon>AdminCreatNewPurchaseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="CEOs\CEOsviewReport.aspx.cs">
+      <DependentUpon>CEOsviewReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CEOs\CEOsviewReport.aspx.designer.cs">
+      <DependentUpon>CEOsviewReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Homepagesfolder\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

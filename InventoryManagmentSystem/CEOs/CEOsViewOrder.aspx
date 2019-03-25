@@ -139,7 +139,7 @@
         </tr>
         <tr>
             <td class="auto-style6">
-                <asp:Button ID="Button1" runat="server" Text="View" />
+                <asp:Button ID="Button1" runat="server" Text="View" PostBackUrl="~/CEOs/CEOsViewOrderDetails.aspx" />
                 <asp:Button ID="Button2" runat="server" Text="Clear field" />
             </td>
             <td>&nbsp;</td>

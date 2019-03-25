@@ -4,75 +4,51 @@
 
 <html>
 <head runat="server">
+      <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style type="text/css">
-        .auto-style1 {
-            width: 364px;
-        }
-        .auto-style2 {
-            width: 738px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+
+            <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+        <ul class="nav navbar-nav navbar-left">
+                               <asp:Image ID="Image1" runat="server" ImageUrl="~/Imeges/koflahlogo2.png" Height="60px" ImageAlign="Middle" Width="90px"  />
+             </ul>
+      <a class="navbar-brand">  Inventory Management System</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="~/CEOs/CEOsHomePage.aspx" runat="server">Home <span class="glyphicon glyphicon-home"> <span class="sr-only">(current)</span></a></li>
+        <li><a href="~/CEOs/CEOsviewReport.aspx"  runat="server">Report <span class=></a></li>
+        <li><a href="~/CEOs/CEOsViewOrder.aspx"  runat="server">Purchase Order <span class=></a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="~/Homepagesfolder/LoginPage.aspx"  runat="server">Logout <span class=</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
         </div>
-        <table style="width: 100%;">
-            <tr>
-                <td class="auto-style1">
-                    <asp:Image ID="Image1" runat="server" Height="192px" ImageUrl="~/Imeges/koflah.png" Width="307px" />
-                </td>
-                <td class="auto-style2">
-                    <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#999999" Text="Inventory Mangment System"></asp:Label>
-                </td>
-                <td>
-                    <asp:LinkButton ID="LinkButton1logiutCeo" runat="server">Logout</asp:LinkButton>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="4">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">
-                    <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
-                        <Items>
-                            <asp:MenuItem Text="Orders" Value="Orders">
-                                <asp:MenuItem Text="Upcoming order" Value="Upcoming order"></asp:MenuItem>
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Report" Value="Report">
-                                <asp:MenuItem Text="Items" Value="Items"></asp:MenuItem>
-                                <asp:MenuItem Text="Sales" Value="Sales"></asp:MenuItem>
-                            </asp:MenuItem>
-                        </Items>
-                    </asp:Menu>
-                </td>
-                <td class="auto-style2">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">&nbsp;</td>
-                <td class="auto-style2">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="2">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                <p>
+                </p>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-                </td>
-                <td>
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td colspan="4">&nbsp;</td>
-            </tr>
-        </table>
+
+            </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>
